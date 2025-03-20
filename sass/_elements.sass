@@ -1,0 +1,249 @@
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    border: none
+    outline: none
+
+:root
+    --white: #FFFFFF
+    --red-action: #C41810
+    --red: #E2231A
+    --black: #333E48
+    --bg: #F8F8F8
+    --grey: #999999
+    --stroke: #3A4752
+    --darkened-black: #394550
+    --light-black: #96A3B0
+    --disabled: #DADADA
+    --bg-error: #FFDEDC
+    --white-stroke: #E4E4E4
+
+$alfa: rgba(0,0,0,0)
+$white: var(--white)
+$red-action: var(--red-action)
+$red: var(--red)
+$black: var(--black)
+$bg: var(--bg)
+$grey: var(--grey)
+$stroke: var(--stroke)
+$darkened-black: var(--darkened-black)
+$light-black: var(--light-black)
+$disabled: var(--disabled)
+$bg-error: var(--bg-error)
+$white-stroke: var(--white-stroke)
+
+body, html
+    font-family: 'Lato', sans-serif
+    font-style: normal
+    font-optical-sizing: auto
+
+body
+    min-height: 100vh
+    color: $black
+    background-color: $bg
+    position: relative
+    z-index: 1
+    &.is_active
+        overflow: hidden
+
+.container
+    max-width: 1400px
+    width: 100%
+    margin: 0 auto
+    padding: 0 20px
+
+img
+    display: block
+    max-width: 100%
+
+h4, .h4
+    font-weight: 800
+    font-size: 24px
+    line-height: 30px
+    letter-spacing: 0%
+    margin: 0 0 30px
+
+a,
+button
+    color: $black
+    font-family: inherit
+    text-decoration: none
+    transition: all ease .3s
+    background-color: transparent
+    &:hover
+        opacity: .8
+
+    &:active
+        opacity: 1
+        transform: scale(.98)
+
+p
+    font-size: 16px
+    font-weight: 400
+    line-height: 115%
+    letter-spacing: 0%
+    margin-bottom: 12px
+    &.--md
+        font-weight: 400
+        font-size: 20px
+        letter-spacing: .3px
+        margin-bottom: 20px
+
+    &:last-child
+        margin-bottom: 0 !important
+
+.btn
+    display: block
+    width: fit-content
+    padding: 15px 34px
+    font-weight: 700
+    text-align: center
+    border-radius: 5px
+    color: white
+    background-color: $red
+    gap: 12px
+
+    &:active
+        opacity: 1
+
+    &:hover
+        opacity: 1
+        background-color: $red-action
+
+    &:disabled
+        cursor: progress
+        color: rgba(255, 255, 255, .2)
+
+ul
+    list-style: none
+
+[class^=fx-], [class*=" fx-"], body, .fx
+    display: flex
+
+.fx-col, body
+    flex-direction: column
+
+.fx
+    &-ac
+        align-items: center
+
+    &-jc
+        justify-content: center
+
+    &-col
+        flex-direction: column
+
+    &-w
+        flex-wrap: wrap
+
+    &-as
+        align-items: flex-start
+
+    &-jb
+        justify-content: space-between
+
+    &-ae
+        align-items: end
+
+label
+    display: block
+    font-weight: 700
+    margin-bottom: 9px
+
+input
+    font-family: inherit
+    border: 1px solid rgba(0, 0, 0, 0)
+    height: 50px
+    width: 100%
+    font-weight: 600
+    border-radius: 5px
+    padding: 0 14px
+    color: $black
+    background-color: $bg
+    margin: 0
+    font-size: 16px
+    &:focus
+        border-color: $black
+
+    &:placeholder-shown
+        &:focus
+            border-color: $black
+        // &:invalid
+        //     border-color: $red-action
+
+    &::placeholder
+        color: $grey
+
+.inp
+    position: relative
+    z-index: 1
+    margin-bottom: 20px
+    &:last-of-type
+        margin-bottom: 0
+    label
+        margin-bottom: 9px
+        i
+            color: $red
+    .ic
+        width: 20px
+        height: 20px
+        display: block
+        position: absolute
+        right: 20px
+        bottom: 15px
+        z-index: 11
+        background-color: $red
+
+    input
+        margin: 0
+
+    &-check
+        position: relative
+        z-index: 1
+        margin-bottom: 31px
+        label
+            font-weight: 500
+            font-size: 12px
+            line-height: 15px
+            display: block
+            position: relative
+            text-align: left
+            z-index: 1
+            padding: 0 0 0 23px
+            &::before
+                content: ""
+                display: inline-block
+                position: absolute
+                box-sizing: border-box
+                left: 0
+                top: 0
+                width: 15px
+                height: 15px
+                border: 1px solid $grey
+
+                background-repeat: no-repeat
+                background-position: center center
+                background-size: 0% auto
+                background-image: url('../media/check.svg')
+
+        input
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            margin: 0
+            opacity: 0
+            padding: 0
+            min-height: 100%
+            width: 100%
+            cursor: pointer
+            height: 100%
+            z-index: 111
+            &:checked ~ label::before
+                background-size: 75% auto
+                border-color: $red-action
+
+mark
+    color: $red-action
+    background-color: $alfa
