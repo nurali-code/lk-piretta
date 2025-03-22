@@ -1,0 +1,30 @@
+.navbar
+    width: fit-content
+    background-color: $black
+    transition: all ease .3s
+    &>*
+        padding: 20px
+        border-bottom: 1px solid var(--stroke, #3A4752)
+        &:last-child
+            border: none
+
+        &:hover,
+        &.is_active
+            opacity: 1
+            background-color: $darkened-black
+
+    .logo
+        gap: 7px
+
+    &__link
+        width: 100%
+        gap: 5px
+        color: $light-black
+
+    &.is_active
+        &>*
+            &>*
+                margin: 0 auto
+                &:last-child
+                    display: none
+

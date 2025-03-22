@@ -36,6 +36,7 @@ $white-stroke: var(--white-stroke)
 body, html
     font-family: 'Lato', sans-serif
     font-style: normal
+    font-weight: 600
     font-optical-sizing: auto
 
 body
@@ -56,6 +57,18 @@ body
 img
     display: block
     max-width: 100%
+
+h1, .h1
+    font-weight: 800
+    font-size: 36px
+    line-height: 45px
+    margin: 0 0 30px
+
+h2, .h2
+    font-weight: 800
+    font-size: 32px
+    line-height: 40px
+    margin: 0 0 30px
 
 h4, .h4
     font-weight: 800
@@ -128,6 +141,8 @@ ul
     &-ac
         align-items: center
 
+    &-je
+        justify-content: flex-end
     &-jc
         justify-content: center
 
@@ -151,9 +166,26 @@ label
     font-weight: 700
     margin-bottom: 9px
 
+.bg
+    box-shadow: 0px 0px 20px 0px #333E480D
+    padding: 30px
+    border-radius: 15px
+    background-color: $white
+
+.c
+    &-red
+        color: $red
+    &-gray
+        color: $grey
+
+.link
+    font-weight: 700
+    border-bottom: 1px solid $red
+    color: $red
+
 input
     font-family: inherit
-    border: 1px solid rgba(0, 0, 0, 0)
+    border: 1px solid $black
     height: 50px
     width: 100%
     font-weight: 600
@@ -167,6 +199,7 @@ input
         border-color: $black
 
     &:placeholder-shown
+        border-color: $alfa
         &:focus
             border-color: $black
         // &:invalid
@@ -175,28 +208,39 @@ input
     &::placeholder
         color: $grey
 
+.m-0
+    margin: 0 !important
+
 .inp
     position: relative
     z-index: 1
+    gap: 10px
     margin-bottom: 20px
     &:last-of-type
         margin-bottom: 0
+
     label
         margin-bottom: 9px
         i
             color: $red
-    .ic
-        width: 20px
-        height: 20px
-        display: block
+    .ic-cencel
         position: absolute
         right: 20px
         bottom: 15px
         z-index: 11
-        background-color: $red
+        --s-width: 20px
+        cursor: pointer
 
     input
         margin: 0
+        &~.ic-cencel
+            transition: all ease .3s
+            opacity: 1
+            visibility: visible
+
+        &:placeholder-shown ~ .ic-cencel
+            opacity: 0
+            visibility: hidden
 
     &-check
         position: relative
@@ -247,3 +291,93 @@ input
 mark
     color: $red-action
     background-color: $alfa
+
+.select
+    position: relative
+    &-list
+        overflow: hidden
+        border-radius: 5px
+        z-index: 111
+        position: absolute
+        top: 100%
+        margin-top: 10px
+        width: 100%
+        transition: all ease .3s
+        opacity: 0
+        visibility: hidden
+        transform: translateY(10px)
+        &>*
+            padding: 10px 20px
+            background-color: $bg
+
+    &-selected
+        cursor: pointer
+        gap: 10px
+        padding: 10px
+        border-radius: 5px
+        border: 1px solid $black
+        span
+            line-height: 20px
+
+    &-checked
+        gap: 11px
+        &>*
+            margin: 0
+
+    &__btn
+        padding: 15px 20px
+        border-radius: 5px
+        gap: 20px
+        white-space: nowrap
+        color: $grey
+        background-color: $bg
+        i
+            --s-x: 0
+            --s-y: 1
+
+        &.is_active ~ *
+            opacity: 1
+            visibility: visible
+            transform: translateY(0)
+
+.checkbox
+    position: relative
+    z-index: 1
+    label
+        position: relative
+        z-index: 1
+        font-weight: 400
+        font-size: 16px
+        display: block
+        line-height: 24px
+        color: #141414
+        padding: 0 0 0 30px
+        margin: 0
+        &::after
+            content: ''
+            display: block
+            width: 20px
+            height: 20px
+            border-radius: 5px
+            position: absolute
+            top: 0
+            left: 0
+            border: 1px solid $black
+            --s-x: 1
+
+    input
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        margin: 0
+        opacity: 0
+        padding: 0
+        min-height: 100%
+        width: 100%
+        cursor: pointer
+        height: 100%
+        z-index: 111
+        &:checked ~ label::after
+            border-color: $red
+            background-color: $red

@@ -1,0 +1,38 @@
+.option label::after,
+[class^=ic-], [class*=" ic-"]
+    --s-width: 20px
+    --s-x: 0
+    --s-y: 0
+    display: inline-block
+    width: var(--s-width)
+    height: var(--s-width)
+    background-repeat: no-repeat
+    background-size: calc( var(--s-width) * 6 ) auto
+    background-position-x: calc(0px - var(--s-width) * var(--s-x) )
+    background-position-y: calc(0px - var(--s-width) * var(--s-y) )
+    background-image: url('../img/sprite.svg')
+
+.ic
+    &-doc
+        --s-x: 0
+        --s-y: 1
+    &-help
+        --s-x: 1
+        --s-y: 1
+    &-log-out
+        --s-x: 4
+        --s-y: 1
+    &-menu
+        --s-x: 2
+        --s-y: 1
+    &-file-search
+        --s-y: 2
+    &-settings
+        --s-x: 3
+        --s-y: 1
+    &-search
+        --s-x: 5
+        --s-y: 2
+
+    &-user
+        --s-x: 4
