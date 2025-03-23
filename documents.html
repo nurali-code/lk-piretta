@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ЛК Пиретта</title>
+	<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="./assets/fonts/stylesheet.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<meta name="theme-color" content="#E2231A">
+</head>
+
+<body>
+	<div class="wrapper fx">
+		<nav class="navbar" id="navbar">
+			<a href="#" class="logo fx-ae">
+				<img src="./assets/img/logo-ic.svg" alt="i`">
+				<img src="./assets/img/logo-text.svg" alt="i">
+			</a>
+
+			<a href="#" title="Профиль" class="navbar__link fx-ac">
+				<i class="ic-user"></i>
+				<span>Профиль</span>
+			</a>
+			<a href="#" title="Документы" class="navbar__link is_active fx-ac">
+				<i class="ic-doc"></i>
+				<span>Документы</span>
+			</a>
+			<a href="./help.html" title="Помощь" class="navbar__link fx-ac">
+				<i class="ic-help"></i>
+				<span>Помощь</span>
+			</a>
+			<a href="#" title="Настройки" class="navbar__link fx-ac">
+				<i class="ic-settings"></i>
+				<span>Настройки</span>
+			</a>
+			<button data-toggle="#navbar" title="Свернуть" class="navbar__link fx-ac">
+				<i class="ic-menu"></i>
+				<span>Свернуть</span>
+			</button>
+			<a href="./login.html" title="Выйти из кабинета" class="navbar__link fx-ac">
+				<i class="ic-log-out"></i>
+				<span>Выйти из кабинета</span>
+			</a>
+		</nav>
+		<main class="main fx-col">
+			<h1>Документы</h1>
+
+			<div class="main-items fx">
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-file-search"></i>
+					</div>
+					<h2 class="main-item__heading">20 документов</h2>
+					<p class="c-gray">За весь период</p>
+				</div>
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-coins"></i>
+					</div>
+					<h2 class="main-item__heading">1 300 000 ₽</h2>
+					<p class="c-gray">Сумма по документам за выбранный период</p>
+				</div>
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-bag"></i>
+					</div>
+					<h2 class="main-item__heading c-red">-15 256 ₽</h2>
+					<p class="c-gray">Ваша текущая задолженность</p>
+				</div>
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-calendar"></i>
+					</div>
+					<h2 class="main-item__heading c-red">-5 256 ₽</h2>
+					<p class="c-gray">Просроченная задолженность</p>
+				</div>
+			</div>
+
+			<div class="main-content bg">
+				<div class="main-header fx-jb fx-ac">
+					<div class="main-col fx-ac">
+						<h3>Список документов</h3>
+						<form class="main-search fx">
+							<div class="inp">
+								<input type="text" placeholder="Поиск документа по номеру УПД" required>
+								<i class="ic-cencel"></i>
+							</div>
+							<button type="submit" class="btn --ic"><i class="ic-search"></i></button>
+						</form>
+					</div>
+					<div class="main-col fx-je fx-ac">
+						<div class="inp m-0 fx-ac">
+							<label class="m-0">Годы:</label>
+							<div class="select">
+								<button class="select__btn fx-ac">
+									<span>Выберите год</span>
+									<i class="ic-arr-down"></i>
+								</button>
+								<div class="select-list">
+									<div class="checkbox">
+										<input value="2021" id="2021" type="checkbox">
+										<label>2021</label>
+									</div>
+									<div class="checkbox">
+										<input value="2022" id="2022" type="checkbox">
+										<label>2022</label>
+									</div>
+									<div class="checkbox">
+										<input value="2023" id="2023" type="checkbox">
+										<label>2023</label>
+									</div>
+									<div class="checkbox">
+										<input checked value="2024" id="2024" type="checkbox">
+										<label>2024</label>
+									</div>
+									<div class="checkbox">
+										<input checked value="2025" id="2025" type="checkbox">
+										<label>2025</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="select-checked fx-ac fx-w">
+							<label for="2024" class="select-selected fx-ac">
+								<span>2024</span> <i class="ic-cencel"></i>
+							</label>
+							<label for="2025" class="select-selected fx-ac">
+								<span>2025</span> <i class="ic-cencel"></i>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<table id="doc-list">
+					<thead>
+						<tr>
+							<th>Документ</th>
+							<th>Итого</th>
+							<th>УПД</th>
+							<th>Счёт</th>
+							<th>Доп. счёт</th>
+							<th>Акт термического обезвреживания</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr class="heading">
+							<td colspan="6" class="c-gray">Январь 2024</td>
+						</tr>
+
+						<tr class="headline">
+							<td>
+								<button class="fx-ac">
+									<i class="ic-more"></i>
+									<span>Акт оказания услуг № 154 от 29.01.2024 г.</span>
+								</button>
+							</td>
+							<td>8 110 393,45₽</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+						</tr>
+						<tr class="content">
+							<td colspan="6">
+								<table class="content">
+									<thead>
+										<th>Услуга</th>
+										<th>Количество</th>
+										<th>Единица измерения</th>
+										<th>Цена</th>
+										<th>Сумма</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «Г»
+												(просроченные лекарственные средства)</td>
+											<td>333 333</td>
+											<td>Бак 120 л.</td>
+											<td>416₽</td>
+											<td>7 934₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th colspan="5">Итого: 122 797,76₽</th>
+										</tr>
+									</tfoot>
+								</table>
+							</td>
+						</tr>
+
+						<tr class="heading">
+							<td colspan="6" class="c-gray">Февраль 2024</td>
+						</tr>
+
+						<tr class="headline">
+							<td>
+								<button class="fx-ac">
+									<i class="ic-more"></i>
+									<span>Акт оказания услуг № 154 от 29.01.2024 г.</span>
+								</button>
+							</td>
+							<td>8 110 393,45₽</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+						</tr>
+						<tr class="content">
+							<td colspan="6">
+								<table class="content">
+									<thead>
+										<th>Услуга</th>
+										<th>Количество</th>
+										<th>Единица измерения</th>
+										<th>Цена</th>
+										<th>Сумма</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «Г»
+												(просроченные лекарственные средства)</td>
+											<td>333 333</td>
+											<td>Бак 120 л.</td>
+											<td>416₽</td>
+											<td>7 934₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th colspan="5">Итого: 122 797,76₽</th>
+										</tr>
+									</tfoot>
+								</table>
+							</td>
+						</tr>
+
+						<tr class="headline">
+							<td>
+								<button class="fx-ac">
+									<i class="ic-more"></i>
+									<span>Акт оказания услуг № 154 от 29.01.2024 г.</span>
+								</button>
+							</td>
+							<td>8 110 393,45₽</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+						</tr>
+						<tr class="content">
+							<td colspan="6">
+								<table class="content">
+									<thead>
+										<th>Услуга</th>
+										<th>Количество</th>
+										<th>Единица измерения</th>
+										<th>Цена</th>
+										<th>Сумма</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «Г»
+												(просроченные лекарственные средства)</td>
+											<td>333 333</td>
+											<td>Бак 120 л.</td>
+											<td>416₽</td>
+											<td>7 934₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th colspan="5">Итого: 122 797,76₽</th>
+										</tr>
+									</tfoot>
+								</table>
+							</td>
+						</tr>
+
+						<tr class="headline">
+							<td>
+								<button class="fx-ac">
+									<i class="ic-more"></i>
+									<span>Акт оказания услуг № 154 от 29.01.2024 г.</span>
+								</button>
+							</td>
+							<td>8 110 393,45₽</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+							<td>
+								<div class="fx-ac fx-jc">
+									<a href="#"><i class="ic-pdf"></i></a>
+									<a href="#"><i class="ic-email"></i></a>
+								</div>
+							</td>
+						</tr>
+						<tr class="content">
+							<td colspan="6">
+								<table class="content">
+									<thead>
+										<th>Услуга</th>
+										<th>Количество</th>
+										<th>Единица измерения</th>
+										<th>Цена</th>
+										<th>Сумма</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «Г»
+												(просроченные лекарственные средства)</td>
+											<td>333 333</td>
+											<td>Бак 120 л.</td>
+											<td>416₽</td>
+											<td>7 934₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+										<tr>
+											<td>Услуги по вывозу и утилизации медицинских отходов класса «А»</td>
+											<td>11</td>
+											<td>кг</td>
+											<td>29₽</td>
+											<td>3 333 333,33₽</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th colspan="5">Итого: 122 797,76₽</th>
+										</tr>
+									</tfoot>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<ul class="pagination fx-ac">
+					<li><a href="#" class="btn disabled --light --sm">Пред.</a></li>
+					<li><a href="#" class="btn is_active --light --sm">1</a></li>
+					<li><a href="#" class="btn --light --sm">2</a></li>
+					<li><a href="#" class="btn --light --sm">3</a></li>
+					<li><a href="#" class="btn --light --sm">След.</a></li>
+				</ul>
+			</div>
+
+		</main>
+	</div>
+
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

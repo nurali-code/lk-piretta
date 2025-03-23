@@ -6,6 +6,8 @@
 
 .wrapper
 	min-height: 100vh
+	position: relative
+	z-index: 1
 	.main
 		flex: 1
 		padding: 40px 20px
@@ -15,7 +17,13 @@
 	&-img
 		width: 50%
 		min-height: 100%
+		position: relative
+		z-index: 1
 		img
+			position: absolute
+			top: 0
+			left: 0
+			z-index: -1
 			width: 100%
 			height: 100%
 			object-fit: cover
@@ -33,9 +41,14 @@
 		width: 100%
 		max-width: 508px
 		margin: auto
+		padding: 30px
 		&>*
 			&:last-child
 				margin-bottom: 0
+
+		.inp
+			&:last-child
+				margin-bottom: 30px
 
 		.h4
 			text-align: center
@@ -50,8 +63,15 @@
 			display: inline-block
 			margin-top: 5px
 
+
+.pagination
+	gap: 11px
+	padding-top: $h-gap
+	margin-top: $h-gap
+	border-top: 1px solid var(--white-stroke, #E4E4E4)
+
 .main
-	gap: 30px
+	gap: $h-gap
 	&>*
 		margin: 0
 
@@ -76,10 +96,13 @@
 		&__heading
 			margin: 0 0 10px
 
-	&-header 
-		gap: 30px
-	&-col 
-		gap: 30px
+	&-header
+		gap: $h-gap
+		padding-bottom: $h-gap
+		border-bottom: 1px solid var(--white-stroke, #E4E4E4)
+
+	&-col
+		gap: $h-gap
 		min-width: 46%
 
 	&-search
@@ -88,10 +111,27 @@
 		.inp
 			width: 100%
 			margin: 0
-		input 
+		input
 			height: 100%
 		.btn
 			// height: 50px
 			padding: 15px
-			i 
+			i
 				display: block
+
+	&-text 
+		gap: 20px
+		&>* 
+			margin: 0
+
+	@media screen and ( max-width: 1720px )
+		&-items
+			--gap: 16px
+
+		&-item
+			&__ic
+				width: 45px
+				height: 45px
+				margin-bottom: 16px
+				i
+					--s-width: 22px

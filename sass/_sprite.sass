@@ -1,4 +1,4 @@
-.option label::after,
+.checkbox label::after,
 [class^=ic-], [class*=" ic-"]
     --s-width: 20px
     --s-x: 0
@@ -10,7 +10,7 @@
     background-size: calc( var(--s-width) * 6 ) auto
     background-position-x: calc(0px - var(--s-width) * var(--s-x) )
     background-position-y: calc(0px - var(--s-width) * var(--s-y) )
-    background-image: url('../img/sprite.svg')
+    background-image: url('../assets/img/sprite.svg')
 
 .ic
     &-doc
@@ -33,6 +33,29 @@
     &-search
         --s-x: 5
         --s-y: 2
+    
+    &-calendar
+        --s-y: 2
+        --s-x: 2
+    &-bag
+        --s-y: 2
+        --s-x: 1
+    &-coins
+        --s-y: 1
+        --s-x: 5
 
+    &-arr-down
+        --s-y: 3
+
+    &-email
+        --s-x: 4
+        --s-y: 2
+    &-pdf
+        --s-x: 3
+        --s-y: 2
+    &-less
+        --s-x: 2
+    &-more
+        --s-x: 3
     &-user
         --s-x: 4

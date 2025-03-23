@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ЛК Пиретта</title>
+	<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="./assets/fonts/stylesheet.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<meta name="theme-color" content="#E2231A">
+</head>
+
+<body>
+	<div class="wrapper fx">
+		<nav class="navbar" id="navbar">
+			<a href="#" class="logo fx-ae">
+				<img src="./assets/img/logo-ic.svg" alt="i`">
+				<img src="./assets/img/logo-text.svg" alt="i">
+			</a>
+
+			<a href="./client-profile.html" title="Профиль" class="navbar__link is_active fx-ac">
+				<i class="ic-user"></i>
+				<span>Профиль</span>
+			</a>
+			<a href="./documents.html" title="Документы" class="navbar__link fx-ac">
+				<i class="ic-doc"></i>
+				<span>Документы</span>
+			</a>
+			<a href="./help.html" title="Помощь" class="navbar__link fx-ac">
+				<i class="ic-help"></i>
+				<span>Помощь</span>
+			</a>
+			<a href="#" title="Настройки" class="navbar__link fx-ac">
+				<i class="ic-settings"></i>
+				<span>Настройки</span>
+			</a>
+			<button data-toggle="#navbar" title="Свернуть" class="navbar__link fx-ac">
+				<i class="ic-menu"></i>
+				<span>Свернуть</span>
+			</button>
+			<a href="./login.html" title="Выйти из кабинета" class="navbar__link fx-ac">
+				<i class="ic-log-out"></i>
+				<span>Выйти из кабинета</span>
+			</a>
+		</nav>
+
+		<main class="main fx-col">
+			<h1>Профиль клиента</h1>
+
+			<div class="main-items fx">
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-file-search"></i>
+					</div>
+					<h2 class="main-item__heading">20 документов</h2>
+					<p class="c-gray">За весь период</p>
+				</div>
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-coins"></i>
+					</div>
+					<h2 class="main-item__heading">1 300 000 ₽</h2>
+					<p class="c-gray">Сумма по документам за выбранный период</p>
+				</div>
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-bag"></i>
+					</div>
+					<h2 class="main-item__heading c-red">-15 256 ₽</h2>
+					<p class="c-gray">Ваша текущая задолженность</p>
+				</div>
+				<div class="main-item bg">
+					<div class="main-item__ic fx-ac fx-jc">
+						<i class="ic-calendar"></i>
+					</div>
+					<h2 class="main-item__heading c-red">-5 256 ₽</h2>
+					<p class="c-gray">Просроченная задолженность</p>
+				</div>
+			</div>
+
+			<div class="main-content bg">
+				<h3>Информация</h3>
+				<form class="fx-col g-20">
+					<div class="fx-w triple">
+						<div class="inp">
+							<label>Наименование компании:</label>
+							<input type="text" value="ГБУЗ «ГКБ №31 им. академика Г.М. Савельевой ДЗМ»" placeholder="Не менее 8 символов" required>
+							<i class="ic-cencel"></i>
+						</div>
+						<div class="inp">
+							<label>ИНН:</label>
+							<input type="text" value="7729123204" placeholder="Не менее 8 символов" required>
+							<i class="ic-cencel"></i>
+						</div>
+						<div class="inp">
+							<label>Электронная почта:</label>
+							<input type="email" value="gkb31@zdrav.mos.ru" placeholder="Не менее 8 символов" required>
+							<i class="ic-cencel"></i>
+						</div>
+						<div class="inp">
+							<label>ФИО ответственного лица:</label>
+							<input type="text" value="Клешнева Ольга Петровна" placeholder="Не менее 8 символов" required>
+							<i class="ic-cencel"></i>
+						</div>
+						<div class="inp">
+							<label>Номер ответственного лица:</label>
+							<input type="text" value="+7 999 999-99-99" placeholder="Не менее 8 символов" required>
+							<i class="ic-cencel"></i>
+						</div>
+					</div>
+					<div class="fx-ac g-20">
+						<button type="submit" class="btn">Изменить данные</button>
+						<button type="submit" class="btn --light">Сменить пароль</button>
+					</div>
+				</form>
+			</div>
+
+		</main>
+	</div>
+
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

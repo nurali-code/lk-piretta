@@ -18,6 +18,7 @@
     --disabled: #DADADA
     --bg-error: #FFDEDC
     --white-stroke: #E4E4E4
+    --h-gap: 30px
 
 $alfa: rgba(0,0,0,0)
 $white: var(--white)
@@ -32,11 +33,14 @@ $light-black: var(--light-black)
 $disabled: var(--disabled)
 $bg-error: var(--bg-error)
 $white-stroke: var(--white-stroke)
+$h-gap: var(--h-gap)
 
 body, html
     font-family: 'Lato', sans-serif
     font-style: normal
-    font-weight: 600
+    font-size: 16px
+    line-height: 20px
+    font-weight: 500
     font-optical-sizing: auto
 
 body
@@ -62,20 +66,26 @@ h1, .h1
     font-weight: 800
     font-size: 36px
     line-height: 45px
-    margin: 0 0 30px
+    margin: 0 0 $h-gap
 
 h2, .h2
     font-weight: 800
     font-size: 32px
     line-height: 40px
-    margin: 0 0 30px
+    margin: 0 0 $h-gap
+
+h3, .h3
+    font-weight: 800
+    font-size: 28px
+    line-height: 35px
+    margin: 0 0 20px
 
 h4, .h4
     font-weight: 800
     font-size: 24px
-    line-height: 30px
+    line-height: $h-gap
     letter-spacing: 0%
-    margin: 0 0 30px
+    margin: 0 0 $h-gap
 
 a,
 button
@@ -92,17 +102,6 @@ button
         transform: scale(.98)
 
 p
-    font-size: 16px
-    font-weight: 400
-    line-height: 115%
-    letter-spacing: 0%
-    margin-bottom: 12px
-    &.--md
-        font-weight: 400
-        font-size: 20px
-        letter-spacing: .3px
-        margin-bottom: 20px
-
     &:last-child
         margin-bottom: 0 !important
 
@@ -124,9 +123,35 @@ p
         opacity: 1
         background-color: $red-action
 
-    &:disabled
-        cursor: progress
+    &:disabled,
+    &.disabled
+        pointer-events: none
+        cursor: not-allowed
         color: rgba(255, 255, 255, .2)
+
+    &.--sm
+        padding: 10px 15px
+
+    &.--light
+        background-color: $bg
+        color: $black
+        &:hover,
+        &.is_active
+            background-color: $red
+            color: $white
+
+        &:disabled,
+        &.disabled
+            color: $grey
+            &.is_active
+                color: $red-action
+
+.g
+    &-20
+        gap: 20px
+
+    &-30
+        gap: 30px
 
 ul
     list-style: none
@@ -168,7 +193,7 @@ label
 
 .bg
     box-shadow: 0px 0px 20px 0px #333E480D
-    padding: 30px
+    padding: $h-gap
     border-radius: 15px
     background-color: $white
 
@@ -185,23 +210,18 @@ label
 
 input
     font-family: inherit
-    border: 1px solid $black
+    border: 1px solid $bg
     height: 50px
     width: 100%
     font-weight: 600
     border-radius: 5px
-    padding: 0 14px
+    padding: 0 40px 0 20px
     color: $black
     background-color: $bg
     margin: 0
-    font-size: 16px
     &:focus
         border-color: $black
 
-    &:placeholder-shown
-        border-color: $alfa
-        &:focus
-            border-color: $black
         // &:invalid
         //     border-color: $red-action
 
@@ -223,6 +243,7 @@ input
         margin-bottom: 9px
         i
             color: $red
+
     .ic-cencel
         position: absolute
         right: 20px
@@ -231,16 +252,17 @@ input
         --s-width: 20px
         cursor: pointer
 
-    input
-        margin: 0
-        &~.ic-cencel
-            transition: all ease .3s
+        transition: all ease .3s
+        opacity: 0
+        visibility: hidden
+
+    &:focus-within
+        .ic-cencel
             opacity: 1
             visibility: visible
 
-        &:placeholder-shown ~ .ic-cencel
-            opacity: 0
-            visibility: hidden
+    input
+        margin: 0
 
     &-check
         position: relative
@@ -292,6 +314,33 @@ mark
     color: $red-action
     background-color: $alfa
 
+.triple
+    gap: 20px
+    &>*
+        width: calc( (100% - 40px )/ 3 )
+        margin: 0 
+
+ul
+    padding-left: 20px
+    list-style: none
+    li
+        padding-left: 30px
+        position: relative
+        z-index: 1
+        margin-bottom: 15px
+        &:last-child
+            margin-bottom: 0
+        &::before
+            content: ''
+            display: block
+            width: 12px
+            height: 12px
+            border-radius: 50%
+            background-color: $red
+            position: absolute
+            left: 4px
+            top: 4px
+
 .select
     position: relative
     &-list
@@ -315,9 +364,9 @@ mark
         gap: 10px
         padding: 10px
         border-radius: 5px
-        border: 1px solid $black
+        border: 1px solid var(--white-stroke, #E4E4E4)
         span
-            line-height: 20px
+            margin-top: 2px
 
     &-checked
         gap: 11px
@@ -331,9 +380,6 @@ mark
         white-space: nowrap
         color: $grey
         background-color: $bg
-        i
-            --s-x: 0
-            --s-y: 1
 
         &.is_active ~ *
             opacity: 1
@@ -378,6 +424,126 @@ mark
         cursor: pointer
         height: 100%
         z-index: 111
+        &:not(:checked)~ label::after
+            background-image: none
         &:checked ~ label::after
             border-color: $red
             background-color: $red
+
+table
+    width: 100%
+    i, span
+        vertical-align: middle
+
+    a
+        display: inline-block
+        i
+            margin: 0
+            --s-width: 28px !important
+
+    .fx-ac
+        gap: 10px
+
+    tr, th
+        text-wrap-style: pretty
+
+    thead
+        th
+            padding: $h-gap calc( $h-gap / 2 )
+            border-bottom: 1px solid var(--white-stroke, #E4E4E4)
+            &:first-child
+                min-width: 15%
+                text-align: left
+
+    tr
+        &.heading
+            td
+                padding: $h-gap 0 calc( $h-gap / 2 )
+
+        &.headline
+            td
+                button
+                    gap: 10px
+                    padding: calc( $h-gap / 2 )
+                    text-align: left
+                &:first-child
+                    padding: 0
+
+            &.is_active,
+            &:hover
+                td
+                    background-color: $bg
+                    &:first-child
+                        border-radius: 5px 0 0 5px
+                    &:last-child
+                        border-radius: 0 5px 5px 0
+
+        &.content
+            &>*
+                &:first-child
+                    padding: calc( $h-gap / 2 ) 0 calc( $h-gap / 2 ) 0
+            &:not(.is_active)
+                display: none
+
+    tbody
+        td
+            font-weight: 500
+            text-align: center
+            padding: calc( $h-gap / 2 )
+            transition: background .3s ease
+            &:first-child
+                text-align: left
+
+    &.content
+        width: calc( 100% - 40px )
+        margin: 0 0 0 auto
+        td, th
+            background-color: $bg
+            padding: calc( $h-gap / 2 )
+            border: none
+
+        thead
+            th
+                text-align: center
+                padding: 15px 20px 10px
+                &:first-child
+                    border-radius: 5px 0 0 0
+                    text-align: left
+                &:last-child
+                    text-align: left
+                    border-radius: 0 5px 0 0
+
+        tbody
+            td
+                padding: 5px 20px
+                width: calc( (100% - 41%)/4 )
+                &:first-child
+                    width: 41%
+                &:last-child
+                    text-align: left
+
+        tfoot th
+                    padding: 15px 20px
+                    border-radius: 0 0 5px 5px
+
+@media screen and ( max-width: 1720px )
+    body, html
+        font-size: 14px
+        line-height: 16px
+
+    :root
+        --h-gap: 22px
+
+    input
+        padding: 0 28px 0 14px
+
+    .inp
+        .ic-cencel
+            right: 14px
+
+    h2
+        font-size: 26px
+        line-height: $h-gap
+
+    .bg
+        border-radius: 12px
