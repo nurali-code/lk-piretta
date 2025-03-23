@@ -3,14 +3,22 @@
     top: 0
     left: 0
     height: 100vh
-    width: fit-content
+    width: 207px
     background-color: $black
-    transition: all ease .3s
+    overflow: hidden
+    transition: width ease .2s
     &>*
         padding: 20px
         border-bottom: 1px solid var(--stroke, #3A4752)
         &:last-child
             border: none
+
+        &>*
+            white-space: nowrap
+            &:last-child
+                opacity: 1
+                visibility: visibles
+                transition: all ease .3s
 
         &:hover,
         &.is_active
@@ -26,9 +34,11 @@
         color: $light-black
 
     &.is_active
+        width: 88px
         &>*
             &>*
                 margin: 0 auto
                 &:last-child
+                    opacity: 0
+                    visibility: hidden
                     display: none
-

@@ -1,27 +1,25 @@
+$font-path: '../assets/fonts'
 
-$font-path: '../font'
+@mixin font-face($name, $file, $weight: normal, $style: normal)
+   @font-face
+      font-family: $name
+      src: local('#{$file}'), local('#{$file}-local'), url('#{$font-path}/#{$file}.woff') format('woff')
+      font-weight: $weight
+      font-style: $style
 
-@font-face
-   font-family: 'Raginy'
-   src: url('#{$font-path}/Raginy-Regular.woff') format('woff')
-   font-weight: normal
-   font-style: normal
-   font-display: swap
-
-@font-face
-   font-family: 'Tilda-Sans'
-   src: url('#{$font-path}/tilda-sans_medium.woff2') format('woff2')
-   font-weight: 500
-   font-style: normal
-
-@font-face
-   font-family: 'Tilda-Sans'
-   src: url('#{$font-path}/tilda-sans_black.woff2') format('woff2')
-   font-weight: 800
-   font-style: normal
-
-@font-face
-   font-family: 'Tilda-Sans'
-   src: url('#{$font-path}/tilda-sans_bold.woff2') format('woff2')
-   font-weight: 700
-   font-style: normal
+@include font-face('Lato', 'Lato-Heavy', 800, normal)
+// @include font-face('Lato', 'Lato-HeavyItalic', 900, italic)
+// @include font-face('Lato', 'Lato-Regular', normal, normal)
+// @include font-face('Lato', 'Lato-Black', 900, normal)
+// @include font-face('Lato', 'Lato-SemiboldItalic', 600, italic)
+// @include font-face('Lato', 'Lato-BlackItalic', 900, italic)
+// @include font-face('Lato', 'Lato-MediumItalic', 500, italic)
+// @include font-face('Lato', 'Lato-ThinItalic', 100, italic)
+// @include font-face('Lato', 'Lato-Thin', 100, normal)
+@include font-face('Lato', 'Lato-Medium', 500, normal)
+// @include font-face('Lato', 'Lato-Italic', normal, italic)
+@include font-face('Lato', 'Lato-Semibold', 600, normal)
+@include font-face('Lato', 'Lato-Bold', bold, normal)
+// @include font-face('Lato', 'Lato-BoldItalic', bold, italic)
+// @include font-face('Lato', 'Lato-LightItalic', 300, italic)
+// @include font-face('Lato', 'Lato-Light', 300, normal)

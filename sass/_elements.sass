@@ -153,11 +153,8 @@ p
     &-30
         gap: 30px
 
-ul
-    list-style: none
-
 [class^=fx-], [class*=" fx-"], body, .fx
-    display: flex
+        display: flex
 
 .fx-col, body
     flex-direction: column
@@ -318,28 +315,29 @@ mark
     gap: 20px
     &>*
         width: calc( (100% - 40px )/ 3 )
-        margin: 0 
+        margin: 0
 
 ul
-    padding-left: 20px
     list-style: none
-    li
-        padding-left: 30px
-        position: relative
-        z-index: 1
-        margin-bottom: 15px
-        &:last-child
-            margin-bottom: 0
-        &::before
-            content: ''
-            display: block
-            width: 12px
-            height: 12px
-            border-radius: 50%
-            background-color: $red
-            position: absolute
-            left: 4px
-            top: 4px
+    &:not(.pagination)
+        padding-left: 20px
+        li
+            padding-left: 30px
+            position: relative
+            z-index: 1
+            margin-bottom: 15px
+            &:last-child
+                margin-bottom: 0
+            &::before
+                content: ''
+                display: block
+                width: 12px
+                height: 12px
+                border-radius: 50%
+                background-color: $red
+                position: absolute
+                left: 4px
+                top: 4px
 
 .select
     position: relative
