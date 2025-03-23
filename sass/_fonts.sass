@@ -3,7 +3,7 @@ $font-path: '../assets/fonts'
 @mixin font-face($name, $file, $weight: normal, $style: normal)
    @font-face
       font-family: $name
-      src: local('#{$file}'), local('#{$file}-local'), url('#{$font-path}/#{$file}.woff') format('woff')
+      src: local('#{$file}'), url('#{$font-path}/#{$file}.woff') format('woff')
       font-weight: $weight
       font-style: $style
 
