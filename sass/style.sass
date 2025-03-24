@@ -103,7 +103,7 @@
 	&-col
 		gap: $h-gap
 		min-width: 46%
-		&>* 
+		&>*
 			margin: 0
 
 	&-search
@@ -120,10 +120,27 @@
 			i
 				display: block
 
-	&-text 
+	&-text
 		gap: 20px
-		&>* 
+		&>*
 			margin: 0
+
+	&-docs
+		gap: 30px
+		&>*
+			margin: 0
+
+	&-list
+		width: fit-content
+		max-width: 50%
+		li
+			gap: 40px
+			margin-bottom: 15px
+			span
+				gap: 10px
+
+			&:last-child
+				margin: 0
 
 	@media screen and ( max-width: 1720px )
 		&-items
