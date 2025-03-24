@@ -3,10 +3,10 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=1200, initial-scale=1">
 	<title>ЛК Пиретта</title>
 	<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
-	
+
 	<link rel="stylesheet" href="./css/style.css">
 	<meta name="theme-color" content="#E63D24">
 </head>
@@ -16,7 +16,12 @@
 		<div class="sign-img"><img src="./assets/img/img-1.jpg" alt="i"></div>
 		<div class="sign-content fx-col">
 			<div class="sign-header fx-ae fx-jb">
-				<a href="#" class="logo"><img src="./assets/img/logo.svg" alt="i"></a>
+				<a href="#" class="logo">
+					<picture>
+						<source media="prefers-color-scheme: dark" srcset="./assets/img/logo-dark.svg">
+						<img src="./assets/img/logo.svg" alt="i">
+					</picture>
+				</a>
 				<a href="#" class="logo"><img src="./assets/img/logo-algoritm.svg" alt="i"></a>
 			</div>
 
@@ -53,6 +58,35 @@
 			</div>
 		</div>
 	</main>
+	
+	<div class="modal" id="modal-setings">
+		<div class="modal-content">
+			<button class="modal__close">&times;</button>
+			<h4 class="modal__heading">Настройки</h4>
+			<div class="inp">
+				<label>Размер текста:</label>
+				<div class="inp-counter fx-ac" id="resize">
+					<button class="--remove btn --sm">–</button>
+					<input type="text" value="100%">
+					<button class="--add btn --sm">+</button>
+					<button class="link --reset">Сбросить</button>
+				</div>
+			</div>
+			<div class="inp">
+				<label>Тема:</label>
+				<div class="inp-wrap fx-ac">
+					<div class="checkbox">
+						<input value="light" name="theme" id="light" type="radio">
+						<label>Светлая</label>
+					</div>
+					<div class="checkbox">
+						<input value="dark" name="theme" id="dark" type="radio">
+						<label>Тёмная</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script src="assets/js/main.js"></script>
 </body>

@@ -3,6 +3,7 @@
 @import 'sprite'
 @import 'elements'
 @import 'navbar'
+@import 'modal'
 
 .wrapper
 	min-height: 100vh
@@ -10,7 +11,7 @@
 	z-index: 1
 	.main
 		flex: 1
-		padding: 40px 20px
+		padding: calc( 40 / 16 * 1rem ) calc( 20 / 16 * 1rem )
 
 .sign
 	min-height: 100vh
@@ -29,42 +30,42 @@
 			object-fit: cover
 
 	&-content
-		padding: 20px
+		padding: calc( 20 / 16 * 1rem )
 		width: 50%
 		padding-bottom: 90px
 
 	&-header
 		width: 100%
-		margin-bottom: 40px
+		margin-bottom: calc( 40 / 16 * 1rem )
 
 	&-box
 		width: 100%
 		max-width: 508px
 		margin: auto
-		padding: 30px
+		padding: calc( 30 / 16 * 1rem )
 		&>*
 			&:last-child
 				margin-bottom: 0
 
 		.inp
 			&:last-child
-				margin-bottom: 30px
+				margin-bottom: calc( 30 / 16 * 1rem )
 
 		.h4
 			text-align: center
 
 		.btn
-			margin: 30px auto 0
+			margin: calc( 30 / 16 * 1rem ) auto 0
 
 		form
-			margin-bottom: 30px
+			margin-bottom: calc( 30 / 16 * 1rem )
 
 		.link
 			display: inline-block
-			margin-top: 5px
+			margin-top: calc( 5 / 16 * 1rem )
 
 .pagination
-	gap: 11px
+	gap: calc( 11 / 16 * 1rem )
 	padding-top: $h-gap
 	margin-top: $h-gap
 	border-top: 1px solid var(--white-stroke, #E4E4E4)
@@ -75,7 +76,7 @@
 		margin: 0
 
 	&-items
-		--gap: 20px
+		--gap: calc( 20 / 16 * 1rem )
 		--amaunt: 4
 		gap: var(--gap)
 
@@ -83,17 +84,17 @@
 		width: calc((100% - var(--gap)*(var(--amaunt) - 1))/var(--amaunt))
 
 		&__ic
-			width: 55px
-			height: 55px
+			width: calc( 55 / 16 * 1rem )
+			height: calc( 55 / 16 * 1rem )
 			border-radius: 50%
-			margin: 0 0 20px
+			margin: 0 0 calc( 20 / 16 * 1rem )
 			background-color: $red
 
 			i
-				--s-width: 32px
+				--s-width: 2rem
 
 		&__heading
-			margin: 0 0 10px
+			margin: 0 0 calc( 10 / 16 * 1rem )
 
 	&-header
 		gap: $h-gap
@@ -108,25 +109,27 @@
 
 	&-search
 		flex: 1
-		gap: 10px
+		gap: calc( 10 / 16 * 1rem )
 		.inp
 			width: 100%
 			margin: 0
 		input
 			height: 100%
+
 		.btn
 			// height: 50px
-			padding: 15px
+			min-width: unset
+			padding: calc( 15 / 16 * 1rem )
 			i
 				display: block
 
 	&-text
-		gap: 20px
+		gap: calc( 20 / 16 * 1rem )
 		&>*
 			margin: 0
 
 	&-docs
-		gap: 30px
+		gap: calc( 30 / 16 * 1rem )
 		&>*
 			margin: 0
 
@@ -134,22 +137,22 @@
 		width: fit-content
 		max-width: 50%
 		li
-			gap: 40px
-			margin-bottom: 15px
+			gap: calc( 40 / 16 * 1rem )
+			margin-bottom: calc( 15 / 16 * 1rem )
 			span
-				gap: 10px
+				gap: calc( 10 / 16 * 1rem )
 
 			&:last-child
 				margin: 0
 
 	@media screen and ( max-width: 1720px )
 		&-items
-			--gap: 16px
+			--gap: calc( 16 / 16 * 1rem )
 
 		&-item
 			&__ic
-				width: 45px
-				height: 45px
-				margin-bottom: 16px
+				width: calc( 45 / 16 * 1rem )
+				height: calc( 45 / 16 * 1rem )
+				margin-bottom: calc( 16 / 16 * 1rem )
 				i
-					--s-width: 22px
+					--s-width: calc( 22 / 16 * 1rem )

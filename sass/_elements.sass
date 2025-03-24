@@ -18,7 +18,21 @@
     --disabled: #DADADA
     --bg-error: #FFDEDC
     --white-stroke: #E4E4E4
-    --h-gap: 30px
+    --h-gap: 1.875rem
+
+:root[data-theme="dark"]
+    --white: #1A1A1A
+    --bg: #121212
+    --red-action: #FF6666
+    --red: #FF4D47
+    --black: #E0E0E0
+    --grey: #757575
+    --stroke: #424242
+    --darkened-black: #B0B0B0
+    --light-black: #9E9E9E
+    --disabled: #424242
+    --bg-error: #4A1A1A
+    --white-stroke: #2D2D2D
 
 $alfa: rgba(0,0,0,0)
 $white: var(--white)
@@ -35,16 +49,21 @@ $bg-error: var(--bg-error)
 $white-stroke: var(--white-stroke)
 $h-gap: var(--h-gap)
 
+html
+    font-size: 16px
+    line-height: 20px
+
 body, html
     font-family: 'Lato', sans-serif
     font-style: normal
-    font-size: 1rem
-    line-height: 1.25rem
     font-weight: 500
     font-optical-sizing: auto
+    min-height: 100vh
+    min-width: 1200px
+    &.is_active
+        overflow: hidden
 
 body
-    min-height: 100vh
     color: $black
     background-color: $bg
     position: relative
@@ -56,7 +75,7 @@ body
     max-width: 1400px
     width: 100%
     margin: 0 auto
-    padding: 0 20px
+    padding: 0 calc(20 / 16 * 1rem)
 
 img
     display: block
@@ -77,19 +96,18 @@ h2, .h2
 h3, .h3
     font-weight: 800
     font-size: 1.75rem
-    line-height: 35px
-    margin: 0 0 20px
+    line-height: calc(35 / 16 * 1rem)
+    margin: 0 0 calc(20 / 16 * 1rem)
 
 h4, .h4
-    font-weight: 800
-    font-size: 2.1875rem
-    line-height: 1.87rem
-    margin: 0 0 $h-gap
+    font-weight: 900
+    font-size: calc( 24 / 16 * 1rem )
+    line-height: calc( 30 / 16 * 1rem )
 
 a,
 button
     color: $black
-    font-family: inherit
+    font-size: inherit
     text-decoration: none
     transition: all ease .3s
     background-color: transparent
@@ -100,21 +118,25 @@ button
         opacity: 1
         transform: scale(.98)
 
+.text
+    &-center
+        text-align: center
+
 p
     &:last-child
         margin-bottom: 0 !important
 
 .btn
     display: block
-    min-width: 220px
+    min-width: 13.75rem
     width: fit-content
-    padding: 15px 34px
+    padding: calc(15 / 16 * 1rem) calc(34 / 16 * 1rem) calc(14 / 16 * 1rem)
     font-weight: 700
     text-align: center
-    border-radius: 5px
-    color: white
+    border-radius: calc(5 / 16 * 1rem)
+    color: $white
     background-color: $red
-    gap: 12px
+    gap: calc(12 / 16 * 1rem)
 
     &:active
         opacity: 1
@@ -130,7 +152,8 @@ p
         color: rgba(255, 255, 255, .2)
 
     &.--sm
-        padding: 10px 15px
+        padding: calc(10 / 16 * 1rem) calc(15 / 16 * 1rem) calc(9 / 16 * 1rem)
+        min-width: unset
 
     &.--light
         background-color: $bg
@@ -147,13 +170,13 @@ p
                 color: $red-action
 
 .g
-    &-10 
-        gap: 10px
+    &-10
+        gap: .62rem
     &-20
-        gap: 20px
+        gap: 1.25rem
 
     &-30
-        gap: 30px
+        gap: 1.875rem
 
 [class^=fx-], [class*=" fx-"], body, .fx
         display: flex
@@ -188,12 +211,12 @@ p
 label
     display: block
     font-weight: 700
-    margin-bottom: 9px
+    margin-bottom: calc( 9 / 16 * 1rem )
 
 .bg
-    box-shadow: 0px 0px 20px 0px #333E480D
+    box-shadow: 0px 0px calc(20 / 16 * 1rem) 0px #333E480D
     padding: $h-gap
-    border-radius: 15px
+    border-radius: calc(15 / 16 * 1rem)
     background-color: $white
 
 .c
@@ -210,11 +233,11 @@ label
 input
     font-family: inherit
     border: 1px solid $bg
-    height: 50px
+    height: calc(50 / 16 * 1rem)
     width: 100%
     font-weight: 600
-    border-radius: 5px
-    padding: 0 40px 0 20px
+    border-radius: calc(5 / 16 * 1rem)
+    padding: 0 40px 0 calc(20 / 16 * 1rem)
     color: $black
     background-color: $bg
     margin: 0
@@ -233,22 +256,22 @@ input
 .inp
     position: relative
     z-index: 1
-    gap: 10px
-    margin-bottom: 20px
+    gap: calc(10 / 16 * 1rem)
+    margin-bottom: calc(20 / 16 * 1rem)
     &:last-of-type
         margin-bottom: 0
 
     label
-        margin-bottom: 9px
+        margin-bottom: calc(9 / 16 * 1rem)
         i
             color: $red
 
     .ic-cencel
         position: absolute
-        right: 20px
-        bottom: 15px
+        right: calc(20 / 16 * 1rem)
+        bottom: calc(15 / 16 * 1rem)
         z-index: 11
-        --s-width: 20px
+        --s-width: calc(20 / 16 * 1rem)
         cursor: pointer
 
         transition: all ease .3s
@@ -256,9 +279,10 @@ input
         visibility: hidden
 
     &:focus-within
-        .ic-cencel
-            opacity: 1
-            visibility: visible
+        input
+            &:not(:placeholder-shown) ~ .ic-cencel
+                opacity: 1
+                visibility: visible
 
     input
         margin: 0
@@ -283,8 +307,8 @@ input
                 box-sizing: border-box
                 left: 0
                 top: 0
-                width: 15px
-                height: 15px
+                width: calc(15 / 16 * 1rem)
+                height: calc(15 / 16 * 1rem)
                 border: 1px solid $grey
 
                 background-repeat: no-repeat
@@ -309,12 +333,34 @@ input
                 background-size: 75% auto
                 border-color: $red-action
 
-mark
-    color: $red-action
-    background-color: $alfa
+    &-counter
+        .--remove
+            border-radius: calc(5 / 16 * 1rem) 0 0 calc(5 / 16 * 1rem)
+        .--add
+            border-radius: 0 calc(5 / 16 * 1rem) calc(5 / 16 * 1rem) 0
+        .--remove,
+        .--add
+            font-weight: normal
+            font-size: 1.875rem
+            padding: 0
+            width: calc(50 / 16 * 1rem)
+            height: calc(50 / 16 * 1rem)
+
+        input
+            height: calc(50 / 16 * 1rem)
+            width: calc(113 / 16 * 1rem)
+            text-align: center
+            padding: calc(10 / 16 * 1rem)
+            border-radius: 0
+
+        .link
+            margin-left: auto
+
+    &-wrap
+        gap: calc( 40 / 16 * 1rem )
 
 .triple
-    gap: 20px
+    gap: calc(20 / 16 * 1rem)
     &>*
         width: calc( (100% - 40px )/ 3 )
         margin: 0
@@ -322,61 +368,61 @@ mark
 ul
     list-style: none
     &.list
-        padding-left: 20px
+        padding-left: calc(20 / 16 * 1rem)
         li
-            padding-left: 30px
+            padding-left: calc(30 / 16 * 1rem)
             position: relative
             z-index: 1
-            margin-bottom: 15px
+            margin-bottom: calc(15 / 16 * 1rem)
             &:last-child
                 margin-bottom: 0
             &::before
                 content: ''
                 display: block
-                width: 12px
-                height: 12px
+                width: calc(12 / 16 * 1rem)
+                height: calc(12 / 16 * 1rem)
                 border-radius: 50%
                 background-color: $red
                 position: absolute
-                left: 4px
-                top: 4px
+                left: calc(4 / 16 * 1rem)
+                top: calc(4 / 16 * 1rem)
 
 .select
     position: relative
     &-list
         overflow: hidden
-        border-radius: 5px
+        border-radius: calc(5 / 16 * 1rem)
         z-index: 111
         position: absolute
         top: 100%
-        margin-top: 10px
+        margin-top: calc(10 / 16 * 1rem)
         width: 100%
         transition: all ease .3s
         opacity: 0
         visibility: hidden
-        transform: translateY(10px)
+        transform: translateY(calc(10 / 16 * 1rem))
         &>*
-            padding: 10px 20px
+            padding: calc(10 / 16 * 1rem) calc(20 / 16 * 1rem)
             background-color: $bg
 
     &-selected
         cursor: pointer
-        gap: 10px
-        padding: 10px
-        border-radius: 5px
+        gap: calc(10 / 16 * 1rem)
+        padding: calc(10 / 16 * 1rem)
+        border-radius: calc(5 / 16 * 1rem)
         border: 1px solid var(--white-stroke, #E4E4E4)
         span
-            margin-top: 2px
+            margin-top: calc(2 / 16 * 1rem)
 
     &-checked
-        gap: 11px
+        gap: calc(11 / 16 * 1rem)
         &>*
             margin: 0
 
     &__btn
-        padding: 15px 20px
-        border-radius: 5px
-        gap: 20px
+        padding: calc(15 / 16 * 1rem) calc(20 / 16 * 1rem)
+        border-radius: calc(5 / 16 * 1rem)
+        gap: calc(20 / 16 * 1rem)
         white-space: nowrap
         color: $grey
         background-color: $bg
@@ -392,24 +438,24 @@ ul
     label
         position: relative
         z-index: 1
-        font-weight: 400
-        font-size: 1rem
-        line-height: 1.5rem
+        font-weight: 700
+        line-height: 1rem
         display: block
-        color: #141414
-        padding: 0 0 0 30px
+        color: $black
+        padding: calc( 3 / 16 * 1rem ) 0 calc( 1 / 16 * 1rem ) 1.875rem
         margin: 0
         &::after
             content: ''
             display: block
-            width: 20px
-            height: 20px
-            border-radius: 5px
+            width: calc( 18 / 16 * 1rem )
+            height: calc( 18 / 16 * 1rem )
+            border-radius: calc(5 / 16 * 1rem)
             position: absolute
             top: 0
             left: 0
             border: 1px solid $black
             --s-x: 1
+            --s-width: calc( 18 / 16 * 1rem )
 
     input
         display: block
@@ -430,6 +476,9 @@ ul
             border-color: $red
             background-color: $red
 
+    &:hover
+        background-color: $white
+
 table
     width: 100%
     i, span
@@ -439,10 +488,10 @@ table
         display: inline-block
         i
             margin: 0
-            --s-width: 28px !important
+            --s-width: calc(28 / 16 * 1rem) !important
 
     .fx-ac
-        gap: 10px
+        gap: calc(10 / 16 * 1rem)
 
     tr, th
         text-wrap-style: pretty
@@ -452,7 +501,6 @@ table
             padding: $h-gap calc( $h-gap / 2 )
             border-bottom: 1px solid var(--white-stroke, #E4E4E4)
             &:first-child
-                min-width: 15%
                 text-align: left
 
     tr
@@ -463,10 +511,13 @@ table
         &.headline
             td
                 button
-                    gap: 10px
                     padding: calc( $h-gap / 2 )
                     text-align: left
+                    i 
+                        min-width: calc( 20 / 16 *1rem )
+
                 &:first-child
+                    width: 32%
                     padding: 0
 
             &.is_active,
@@ -474,9 +525,9 @@ table
                 td
                     background-color: $bg
                     &:first-child
-                        border-radius: 5px 0 0 5px
+                        border-radius: calc(5 / 16 * 1rem) 0 0 calc(5 / 16 * 1rem)
                     &:last-child
-                        border-radius: 0 5px 5px 0
+                        border-radius: 0 calc(5 / 16 * 1rem) calc(5 / 16 * 1rem) 0
 
         &.content
             &>*
@@ -495,7 +546,7 @@ table
                 text-align: left
 
     &.content
-        width: calc( 100% - 40px )
+        width: calc( 100% - calc(40 / 16 * 1rem) )
         margin: 0 0 0 auto
         td, th
             background-color: $bg
@@ -505,45 +556,59 @@ table
         thead
             th
                 text-align: center
-                padding: 15px 20px 10px
+                padding: calc(15 / 16 * 1rem) calc(20 / 16 * 1rem) calc(10 / 16 * 1rem)
                 &:first-child
-                    border-radius: 5px 0 0 0
+                    border-radius: calc(5 / 16 * 1rem) 0 0 0
                     text-align: left
                 &:last-child
                     text-align: left
-                    border-radius: 0 5px 0 0
+                    border-radius: 0 calc(5 / 16 * 1rem) 0 0
 
         tbody
             td
-                padding: 5px 20px
+                padding: calc(5 / 16 * 1rem) calc(20 / 16 * 1rem)
                 width: calc( (100% - 41%)/4 )
                 &:first-child
                     width: 41%
                 &:last-child
                     text-align: left
 
-        tfoot th
-                    padding: 15px 20px
-                    border-radius: 0 0 5px 5px
+        tfoot
+            th
+                padding: calc(15 / 16 * 1rem) calc(20 / 16 * 1rem)
+                border-radius: 0 0 calc(5 / 16 * 1rem) calc(5 / 16 * 1rem)
+
+    &#doc-list
+        th
+            min-width: 15%
+
+    &.table-list
+        td, th
+            word-break: break-word
+            padding: calc( 14.75 / 16 * 1rem ) calc( 11.5 / 16 * 1rem )
+            &:first-child
+                width: 12.5%
+
+        .link
+            white-space: nowrap
 
 @media screen and ( max-width: 1720px )
-    body, html
+    html
         font-size: 14px
-        line-height: 16px
 
     :root
-        --h-gap: 22px
+        --h-gap: 1.37rem
 
     input
-        padding: 0 28px 0 14px
+        padding: 0 calc(28 / 16 * 1rem) 0 calc(14 / 16 * 1rem)
 
     .inp
         .ic-cencel
-            right: 14px
+            right: calc(14 / 16 * 1rem)
 
     h2
         font-size: 1.625rem
         line-height: 1.375rem
 
     .bg
-        border-radius: 12px
+        border-radius: calc(12 / 16 * 1rem)

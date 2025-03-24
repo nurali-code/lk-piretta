@@ -1,10 +1,73 @@
-const body = document.body;
-const docList = body.querySelector('#doc-list');
-const navToggler = body.querySelectorAll('[data-toggle]');
-const inpRecet = body.querySelectorAll('.inp .ic-cencel');
-const selectBtn = body.querySelectorAll('.select__btn');
-const selectChecked = body.querySelector('.select-checked');
-const checkbox = body.querySelectorAll('.select .checkbox input');
+const body = document.body,
+    docList = body.querySelector('#doc-list'),
+    navToggler = body.querySelectorAll('[data-toggle]'),
+    inpRecet = body.querySelectorAll('.inp .ic-cencel'),
+    selectBtn = body.querySelectorAll('.select__btn'),
+    selectChecked = body.querySelector('.select-checked'),
+    checkbox = body.querySelectorAll('.select .checkbox input');
+
+// Функция применения темы
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+// Обработчик переключения
+document.querySelectorAll('input[name="theme"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+        setTheme(e.target.value);
+    });
+});
+
+// Проверка сохранённой темы при загрузке
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    setTheme(savedTheme);
+    document.querySelector(`input[value="${savedTheme}"]`).checked = true;
+}
+
+// Опционально: синхронизация с системными настройками
+const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+if (!savedTheme && systemDark.matches) {
+    setTheme('dark');
+    document.querySelector('input[value="dark"]').checked = true;
+}
+
+// >>>>>>>>>>>>>>>> Размер текста:
+
+const html = document.documentElement;
+const rs = document.querySelector('#resize');
+const rsInp = rs.querySelector('input');
+let baseFontSize = parseFloat(getComputedStyle(html).fontSize);
+
+const loadFontSize = () => {
+    let savedSize = localStorage.getItem('fontSize') || '100%';
+    rsInp.value = savedSize;
+    html.style.fontSize = (baseFontSize * parseFloat(savedSize) / 100) + 'px';
+};
+
+const updateFontSize = (change) => {
+    let newPercentage = Math.max(1, (parseFloat(rsInp.value) || 100) + change);
+    rsInp.value = newPercentage + '%';
+    html.style.fontSize = (baseFontSize * newPercentage / 100) + 'px';
+    localStorage.setItem('fontSize', newPercentage + '%');
+};
+
+rs.querySelector('.--add').addEventListener('click', () => updateFontSize(1));
+rs.querySelector('.--remove').addEventListener('click', () => updateFontSize(-1));
+rs.querySelector('.--reset').addEventListener('click', () => {
+    rsInp.value = '100%';
+    html.style.fontSize = '';
+    html.style.fontSize = baseFontSize + 'px';
+    localStorage.setItem('fontSize', '100%');
+});
+
+const applyFontSize = () => updateFontSize(0);
+rsInp.addEventListener('blur', applyFontSize);
+rsInp.addEventListener('keypress', (e) => e.key === 'Enter' && (applyFontSize(), rsInp.blur()));
+loadFontSize();
+
+// <<<<<<<<<<<<<<<<< Размер текста;
 
 if (docList) {
     docList.addEventListener('click', (e) => {
@@ -34,6 +97,51 @@ if (docList) {
     });
 }
 
+// >>>>>>>>>>>>>>>> Модальные окна:
+const mBtns = document.querySelectorAll('a[href^="#modal-"]'),
+    mClose = document.querySelectorAll('.modal__close'),
+    mModals = document.querySelectorAll('.modal');
+
+function cFS(inst) {
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.marginRight = inst === 0 ? '0' : scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
+}
+
+mBtns.forEach(btn => {
+    btn.onclick = (e) => {
+        e.preventDefault();
+        cFS(1);
+        const targetId = btn.getAttribute('href');
+        const targetModal = document.querySelector(targetId);
+
+        if (targetModal) {
+            targetModal.classList.add('is_active');
+            document.body.classList.add('is_active');
+        }
+    }
+});
+
+mModals.forEach(modal => {
+    modal.addEventListener('click', (event) => {
+        if (!event.target.closest('.modal-content')) {
+            modal.classList.remove('is_active');
+            body.classList.remove('is_active');
+            cFS(0);
+        }
+    });
+});
+
+mClose.forEach(close => {
+    close.addEventListener('click', () => {
+        mModals.forEach(modal => {
+            modal.classList.remove('is_active');
+            body.classList.remove('is_active');
+            cFS(0);
+        })
+    });
+});
+
+// <<<<<<<<<<<<<<<<< Модальные окна;
 
 navToggler.forEach(el => {
     const elId = el.getAttribute('data-toggle');
@@ -53,7 +161,6 @@ navToggler.forEach(el => {
         }
     });
 });
-
 
 inpRecet.forEach(el => {
     el.onclick = () => { el.parentElement.querySelector('input').value = '' }
@@ -83,4 +190,3 @@ checkbox.forEach(el => {
         else { selectChecked.style = '' }
     })
 })
-

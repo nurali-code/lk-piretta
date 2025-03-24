@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=1200, initial-scale=1">
 	<title>ЛК Пиретта</title>
 	<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
 
@@ -15,15 +15,15 @@
 	<div class="wrapper fx">
 		<nav class="navbar" id="navbar">
 			<a href="#" class="logo fx-ae">
-				<img src="./assets/img/logo-ic.svg" alt="i`">
+				<img src="./assets/img/logo-ic.svg" alt="i">
 				<img src="./assets/img/logo-text.svg" alt="i">
 			</a>
 
 			<a href="./clients-admin.html" title="Помощь" class="navbar__link fx-ac">
-				<i class="ic-help"></i>
+				<i class="ic-clients-2"></i>
 				<span>Клиенты</span>
 			</a>
-			<a href="#" title="Настройки" class="navbar__link fx-ac">
+			<a href="#modal-setings" title="Настройки" class="navbar__link fx-ac">
 				<i class="ic-settings"></i>
 				<span>Настройки</span>
 			</a>
@@ -38,115 +38,180 @@
 		</nav>
 
 		<main class="main fx-col">
-			<h1>Профиль клиента</h1>
+			<h1>Клиенты</h1>
 
 			<div class="main-items fx">
 				<div class="main-item bg">
 					<div class="main-item__ic fx-ac fx-jc">
-						<i class="ic-file-search"></i>
+						<i class="ic-clients"></i>
 					</div>
-					<h2 class="main-item__heading">20 документов</h2>
+					<h2 class="main-item__heading">4983 клиентов</h2>
 					<p class="c-gray">За весь период</p>
-				</div>
-				<div class="main-item bg">
-					<div class="main-item__ic fx-ac fx-jc">
-						<i class="ic-coins"></i>
-					</div>
-					<h2 class="main-item__heading">1 300 000 ₽</h2>
-					<p class="c-gray">Сумма по документам за выбранный период</p>
-				</div>
-				<div class="main-item bg">
-					<div class="main-item__ic fx-ac fx-jc">
-						<i class="ic-bag"></i>
-					</div>
-					<h2 class="main-item__heading c-red">-15 256 ₽</h2>
-					<p class="c-gray">Ваша текущая задолженность</p>
-				</div>
-				<div class="main-item bg">
-					<div class="main-item__ic fx-ac fx-jc">
-						<i class="ic-calendar"></i>
-					</div>
-					<h2 class="main-item__heading c-red">-5 256 ₽</h2>
-					<p class="c-gray">Просроченная задолженность</p>
 				</div>
 			</div>
 
 			<div class="main-content bg">
-				<h3>Информация</h3>
-				<form class="fx-col g-20">
-					<div class="fx-w triple">
-						<div class="inp">
-							<label>Наименование компании:</label>
-							<input type="text" value="ГБУЗ «ГКБ №31 им. академика Г.М. Савельевой ДЗМ»"
-								placeholder="Не менее 8 символов" required>
-							<i class="ic-cencel"></i>
-						</div>
-						<div class="inp">
-							<label>ИНН:</label>
-							<input type="text" value="7729123204" placeholder="Не менее 8 символов" required>
-							<i class="ic-cencel"></i>
-						</div>
-						<div class="inp">
-							<label>Электронная почта:</label>
-							<input type="email" value="gkb31@zdrav.mos.ru" placeholder="Не менее 8 символов" required>
-							<i class="ic-cencel"></i>
-						</div>
-						<div class="inp">
-							<label>ФИО ответственного лица:</label>
-							<input type="text" value="Клешнева Ольга Петровна" placeholder="Не менее 8 символов"
-								required>
-							<i class="ic-cencel"></i>
-						</div>
-						<div class="inp">
-							<label>Номер ответственного лица:</label>
-							<input type="text" value="+7 999 999-99-99" placeholder="Не менее 8 символов" required>
-							<i class="ic-cencel"></i>
-						</div>
+				<div class="main-header fx-jb fx-ac">
+					<div class="main-col fx-ac">
+						<h3>Список документов</h3>
+						<form class="main-search fx">
+							<div class="inp">
+								<input type="text" placeholder="Поиск документа по номеру УПД" required>
+								<i class="ic-cencel"></i>
+							</div>
+							<button type="submit" class="btn --ic"><i class="ic-search"></i></button>
+						</form>
 					</div>
-					<div class="fx-ac g-20">
-						<button type="submit" class="btn">Изменить данные</button>
-						<button type="submit" class="btn">Сменить пароль</button>
-						<button type="submit" class="btn">Заблокировать</button>
-					</div>
-				</form>
-			</div>
+				</div>
 
-			<div class="main-docs fx-col bg">
-				<h3>Документы</h3>
-				<ul class="main-list g-10">
-					<li class="fx-ac fx-jb">
-						<span>УПД</span>
-						<span class="fx-ac">
-							<a href="#" class="ic-pdf"></a>
-							<a href="#" class="ic-email"></a>
-						</span>
-					</li>
-					<li class="fx-ac fx-jb">
-						<span>Счёт</span>
-						<span class="fx-ac">
-							<a href="#" class="ic-pdf"></a>
-							<a href="#" class="ic-email"></a>
-						</span>
-					</li>
-					<li class="fx-ac fx-jb">
-						<span>Доп. счёт</span>
-						<span class="fx-ac">
-							<a href="#" class="ic-pdf"></a>
-							<a href="#" class="ic-email"></a>
-						</span>
-					</li>
-					<li class="fx-ac fx-jb">
-						<span>Акт термического обезвреживания</span>
-						<span class="fx-ac">
-							<a href="#" class="ic-pdf"></a>
-							<a href="#" class="ic-email"></a>
-						</span>
-					</li>
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th>Название компании</th>
+							<th>ИНН</th>
+							<th>Эл. почта</th>
+							<th>ФИО ответ. лица</th>
+							<th>Тел. ответ. лица</th>
+							<th>Статус</th>
+							<th>Дата регистрации</th>
+							<th>Просроч. задолженность</th>
+							<th>Задолженность</th>
+							<th>Действия</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>ГКБ №23 имени И.В. Давыдовского</td>
+							<td>7709129423</td>
+							<td>
+								ssddagkb23 <br>
+								@zdrav.mos.ru
+							</td>
+							<td>Александров А. А.</td>
+							<td>+7 (999) 999-99-99</td>
+							<td>Активен</td>
+							<td>01.02.2024</td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><a href="#" class="link">Разблокировать</a></td>
+						</tr>
+						<tr>
+							<td>ГКБ №23 имени И.В. Давыдовского</td>
+							<td>7709129423</td>
+							<td>
+								ssddagkb23 <br>
+								@zdrav.mos.ru
+							</td>
+							<td>Александров А. А.</td>
+							<td>+7 (999) 999-99-99</td>
+							<td>Активен</td>
+							<td>01.02.2024</td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><a href="#" class="link">Разблокировать</a></td>
+						</tr>
+						<tr>
+							<td>ГКБ №23 имени И.В. Давыдовского</td>
+							<td>7709129423</td>
+							<td>
+								ssddagkb23 <br>
+								@zdrav.mos.ru
+							</td>
+							<td>Александров А. А.</td>
+							<td>+7 (999) 999-99-99</td>
+							<td>Активен</td>
+							<td>01.02.2024</td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><a href="#" class="link">Разблокировать</a></td>
+						</tr>
+						<tr>
+							<td>ГКБ №23 имени И.В. Давыдовского</td>
+							<td>7709129423</td>
+							<td>
+								ssddagkb23 <br>
+								@zdrav.mos.ru
+							</td>
+							<td>Александров А. А.</td>
+							<td>+7 (999) 999-99-99</td>
+							<td>Активен</td>
+							<td>01.02.2024</td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><a href="#" class="link">Разблокировать</a></td>
+						</tr>
+						<tr>
+							<td>ГКБ №23 имени И.В. Давыдовского</td>
+							<td>7709129423</td>
+							<td>
+								ssddagkb23 <br>
+								@zdrav.mos.ru
+							</td>
+							<td>Александров А. А.</td>
+							<td>+7 (999) 999-99-99</td>
+							<td>Активен</td>
+							<td>01.02.2024</td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><a href="#" class="link">Разблокировать</a></td>
+						</tr>
+						<tr>
+							<td>ГКБ №23 имени И.В. Давыдовского</td>
+							<td>7709129423</td>
+							<td>
+								ssddagkb23 <br>
+								@zdrav.mos.ru
+							</td>
+							<td>Александров А. А.</td>
+							<td>+7 (999) 999-99-99</td>
+							<td>Активен</td>
+							<td>01.02.2024</td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><span class="c-red">-3 333 333,33₽</span></td>
+							<td><a href="#" class="link">Разблокировать</a></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<ul class="pagination fx-ac">
+					<li><a href="#" class="btn disabled --light --sm">Пред.</a></li>
+					<li><a href="#" class="btn is_active --light --sm">1</a></li>
+					<li><a href="#" class="btn --light --sm">2</a></li>
+					<li><a href="#" class="btn --light --sm">3</a></li>
+					<li><a href="#" class="btn --light --sm">След.</a></li>
 				</ul>
-				<button class="btn">Отправить все</button>
 			</div>
-
 		</main>
+	</div>
+
+	<div class="modal" id="modal-setings">
+		<div class="modal-content">
+			<button class="modal__close">&times;</button>
+			<h4 class="modal__heading">Настройки</h4>
+			<div class="inp">
+				<label>Размер текста:</label>
+				<div class="inp-counter fx-ac" id="resize">
+					<button class="--remove btn --sm">–</button>
+					<input type="text" value="100%">
+					<button class="--add btn --sm">+</button>
+					<button class="link --reset">Сбросить</button>
+				</div>
+			</div>
+			<div class="inp">
+				<label>Тема:</label>
+				<div class="inp-wrap fx-ac">
+					<div class="checkbox">
+						<input value="light" checked name="theme" id="light" type="radio">
+						<label>Светлая</label>
+					</div>
+					<div class="checkbox">
+						<input value="dark" name="theme" id="dark" type="radio">
+						<label>Тёмная</label>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="assets/js/main.js"></script>

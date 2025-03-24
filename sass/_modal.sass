@@ -1,49 +1,59 @@
 .modal
-    // display: none
     position: fixed
     top: 0
     left: 0
     height: 100%
     width: 100vw
     z-index: 99999
-    background-color: rgba(#141414, .5)
+    background-color: rgba(#333E48, .6)
     backdrop-filter: blur(2px)
-    padding: 20px
+    padding: calc(20 / 16 * 1rem)
     box-sizing: border-box
     overflow-y: scroll
 
-    transition: all ease .4s
+    transition: all ease .3s
     opacity: 0
     visibility: hidden
 
     &-content
-        min-height: 100px
+        min-height: calc(100 / 16 * 1rem)
         display: block
-        background-color: $bg
+        background-color: $white
         transition: transform ease .4s
         margin: auto !important
         position: absolute
         top: 50%
         left: 50%
 
-        max-width: 463px
-        width: calc( 100% - 40px )
-        padding: 70px $h-gap
+        border-radius: calc(15 / 16 * 1rem)
+        width: 100%
+        max-width: 22.81rem
+        padding: calc(30 / 16 * 1rem)
         transform: translate(-50%, -40%)
+        &.--md
+            max-width: calc(445 / 16 * 1rem)
+
+    &__heading
+        margin-bottom: 1.875rem
+        text-align: center
+
+    &-form
+        .btn
+            margin: calc( 30 / 16 * 1rem ) auto 0
 
     &__close
         position: absolute
-        color: $white
+        color: $black
         line-height: $h-gap
-        font-size: 40px
+        font-size: calc(40 / 16 * 1rem)
+        width: calc(24 / 16 * 1rem)
+        height: calc(24 / 16 * 1rem)
         font-weight: 300
-        font-family: "Inter", sans-serif
-        top: -40px
-        right: -35px
-        pointer-events: none
+        top: calc(15 / 16 * 1rem)
+        right: calc(15 / 16 * 1rem)
         .ic
-            width: 24px
-            height: 24px
+            width: calc(24 / 16 * 1rem)
+            height: calc(24 / 16 * 1rem)
 
     &.is_active
         opacity: 1

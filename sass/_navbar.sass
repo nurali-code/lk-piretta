@@ -3,13 +3,13 @@
     top: 0
     left: 0
     height: 100vh
-    width: 207px
-    min-width: 207px
+    width: calc( 207 / 16 * 1rem )
+    min-width: calc( 207 / 16 * 1rem )
     background-color: $black
     overflow: hidden
     transition: width ease .2s
     &>*
-        padding: 20px
+        padding: calc( 20 / 16 * 1rem )
         border-bottom: 1px solid var(--stroke, #3A4752)
         &:last-child
             border: none
@@ -18,7 +18,7 @@
             white-space: nowrap
             &:last-child
                 opacity: 1
-                visibility: visibles
+                visibility: visible
                 transition: all ease .3s
 
         &:hover,
@@ -28,15 +28,29 @@
 
     .logo
         gap: 7px
+        &>*
+            transition: max-width .3s ease
+            max-width: 40%
+            &:last-child
+                max-width: 55%
 
     &__link
         width: 100%
-        gap: 5px
+        gap: calc( 5 / 16 * 1rem )
         color: $light-black
+        white-space: nowrap
+
+        &> *
+            vertical-align: middle
+
+        span
+            // height: calc( 20 / 16 *1rem)
+            padding: calc( 3 / 16 * 1rem ) 0 calc( 1 / 16 * 1rem )
+            line-height: 1rem
 
     &.is_active
-        min-width: 88px
-        width: 88px
+        min-width: calc( 88 / 16 * 1rem )
+        width: calc( 88 / 16 * 1rem )
         &>*
             &>*
                 margin: 0 auto
@@ -44,3 +58,12 @@
                     opacity: 0
                     visibility: hidden
                     display: none
+
+        .logo > *
+            max-width: 100%
+
+[data-theme="dark"]
+    .navbar
+        --black: #1A1A1A
+        --darkened-black: #394550
+        --stroke: #424242
