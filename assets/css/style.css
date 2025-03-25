@@ -216,7 +216,7 @@ th {
 
 @font-face {
     font-family: "Lato";
-    src: local("Lato-Black"), url("../assets/fonts/Lato-Black.woff") format("woff");
+    src: local("Lato-Black"), url("../fonts/Lato-Black.woff") format("woff");
     font-weight: 800;
     font-style: normal;
     font-display: swap
@@ -224,7 +224,7 @@ th {
 
 @font-face {
     font-family: "Lato";
-    src: local("Lato-Medium"), url("../assets/fonts/Lato-Medium.woff") format("woff");
+    src: local("Lato-Medium"), url("../fonts/Lato-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap
@@ -232,7 +232,7 @@ th {
 
 @font-face {
     font-family: "Lato";
-    src: local("Lato-Semibold"), url("../assets/fonts/Lato-Semibold.woff") format("woff");
+    src: local("Lato-Semibold"), url("../fonts/Lato-Semibold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap
@@ -240,7 +240,7 @@ th {
 
 @font-face {
     font-family: "Lato";
-    src: local("Lato-Bold"), url("../assets/fonts/Lato-Bold.woff") format("woff");
+    src: local("Lato-Bold"), url("../fonts/Lato-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap
@@ -263,13 +263,13 @@ th {
     background-position-x: calc(0px - var(--s-width)*var(--s-x));
     background-position-y: -webkit-calc(0px - var(--s-width)*var(--s-y));
     background-position-y: calc(0px - var(--s-width)*var(--s-y));
-    background-image: url("../assets/img/sprite.svg")
+    background-image: url("../img/sprite.svg")
 }
 
 [data-theme=dark] .checkbox label::after,
 [data-theme=dark] [class^=ic-],
 [data-theme=dark] [class*=" ic-"] {
-    background-image: url("../assets/img/sprite-dark.svg")
+    background-image: url("../img/sprite-dark.svg")
 }
 
 .ic-clients {
